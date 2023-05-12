@@ -1,6 +1,6 @@
 package it.camp.fifopriority;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -26,7 +26,7 @@ public class FIFOPriority {
     private final List<QueueElement> queue;
 
     private FIFOPriority() {
-        this.queue = new ArrayList<>();
+        this.queue = new LinkedList<>();
     }
 
     public void push(String element, int priority) {
@@ -95,7 +95,7 @@ public class FIFOPriority {
     public void listQueue() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < queue.size(); i++) {
-            sb.append(i+1).append(". P:")
+            sb.append(i + 1).append(". P:")
                     .append(queue.get(i).getPriority())
                     .append(" ")
                     .append(queue.get(i).getValue())
@@ -110,8 +110,8 @@ public class FIFOPriority {
 }
 
 class QueueElement {
-    private String value;
-    private int priority;
+    private final String value;
+    private final int priority;
 
     public QueueElement(String value, int priority) {
         this.value = value;
