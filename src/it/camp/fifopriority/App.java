@@ -1,5 +1,7 @@
 package it.camp.fifopriority;
 
+import it.camp.fifopriority.core.FIFOPriority;
+
 public class App {
     public static void main(String[] args) {
         FIFOPriority fifoPriority = FIFOPriority.getInstance();
@@ -14,5 +16,4 @@ public class App {
         System.out.println(fifoPriority.popHighest());
         System.out.println(fifoPriority.popHighThree());
     }
-
 }

@@ -1,11 +1,11 @@
-package it.camp.fifopriority;
+package it.camp.fifopriority.core;
 
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Kolejka priorytetowa.
- * Napisz klase it.camp.fifopriority.FIFOPriority która przechowuje Stringi.
+ * Napisz klase it.camp.fifopriority.Core.FIFOPriority która przechowuje Stringi.
  * Kolejka ma działać zgodnie z zasadami kolejki FIFO
  * jednak elementy mają mieć priorytety.
  * Klasa posiada metodę push(String element, int priority).
@@ -107,32 +107,32 @@ public class FIFOPriority {
     public static FIFOPriority getInstance() {
         return instance;
     }
-}
 
-class QueueElement {
-    private final String value;
-    private final int priority;
+    private static class QueueElement {
+        private final String value;
+        private final int priority;
 
-    public QueueElement(String value, int priority) {
-        this.value = value;
-        this.priority = setPriority(priority);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    private int setPriority(int priority) {
-        if (priority > 99) {
-            return 99;
+        private QueueElement(String value, int priority) {
+            this.value = value;
+            this.priority = setPriority(priority);
         }
-        if (priority < 0) {
-            return 0;
+
+        private String getValue() {
+            return value;
         }
-        return priority;
+
+        private int getPriority() {
+            return priority;
+        }
+
+        private int setPriority(int priority) {
+            if (priority > 99) {
+                return 99;
+            }
+            if (priority < 0) {
+                return 0;
+            }
+            return priority;
+        }
     }
 }
